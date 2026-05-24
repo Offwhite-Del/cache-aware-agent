@@ -42,16 +42,16 @@ print(reply)
 print(agent.report())  # 缓存命中报告
 ```
 
-### 为什么不是 TypeScript？
+### 为什么是 Python 零依赖？
 
-| | CacheAwareAgent | Reasonix (TS) |
+| | CacheAwareAgent | npm/TypeScript 方案 |
 | --- | --- | --- |
-| 依赖 | 零（标准库） | npm + TypeScript |
-| 运行环境 | 任何有 Python 的地方 | 需要 Node.js |
-| 缓存策略 | 前缀缓存 + 三段式 | 多层缓存（LRU/前缀） |
+| 依赖 | 零（标准库） | npm install + node_modules |
+| 运行环境 | 任何有 Python 3.10+ 的地方 | 需要 Node.js 运行时 |
+| 部署 | 单文件复制即可 | 依赖管理+构建步骤 |
 | 适用场景 | 嵌入式/工控/边缘设备 | 高性能 Serverless |
 
-**理念不同**：Reasonix 是高性能框架，CacheAwareAgent 是极简工具——在工控机、树莓派、嵌入式设备上也能跑。
+**核心理念**：在工控机、树莓派、嵌入式设备上，没有 npm、没有网络、甚至没有完整的操作系统——只有一个 Python 解释器。CacheAwareAgent 为这个场景设计。
 
 ## 三条铁律详解
 
